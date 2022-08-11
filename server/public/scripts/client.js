@@ -5,6 +5,7 @@ function onReady() {
     $('body').on('click', '#submit-task', submitTask);
     $('body').on('click','.button-complete', markComplete);
     $('body').on('click','.button-delete', deleteTask);
+    $('body').on('click','.button-undo', undoTask);
 
     updateDisplay();
 }
@@ -56,12 +57,16 @@ function updateDisplay() {
         const tasks = response;
         $('#task-list').empty();
         for (let task of tasks) {
-        
+        if (task.complete === 'N') {
+            task.buttonMode = `<button class="button-complete" data-id="${task.id}">Mark Complete</button>`
+        } else if (task.complete ==='Y') {
+            task.buttonMode = `<button class="button-undo" data-id="${task.id}">Undo</button>`;
+        }
             $('#task-list').append(`
             <tr data-complete="${task.complete}">
             <td>${task.name}</td>
             <td>
-            <button class="button-complete" data-id="${task.id}">Mark Complete</button>
+            ${task.buttonMode}
             <button class="button-delete" data-id="${task.id}">Delete</button>
             </td>
             </tr>
@@ -89,4 +94,21 @@ function markComplete() {
         console.log(error);
         alert('Something went wrong');
     })
+}
+
+function undoTask() {
+    const taskId = $(this).data('id');
+    console.log('Undo', taskId);
+
+    $.ajax({
+        type: 'PUT',
+        url: `/tasks/${taskId}`,
+        data: { complete: 'N'}
+    }).then(function (response) {
+        updateDisplay();
+    }).catch(function (error) {
+        console.log(error) 
+        alert('Something went wrong');
+    });
+
 }
