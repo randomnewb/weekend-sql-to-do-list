@@ -10,12 +10,24 @@ function onReady() {
 }
 
 function submitTask() {
-    const task = {
-        name: $('#task-field').val(),
-        complete: 'N',
-    }
 
-    updateDisplay()
+    $.ajax({
+        type: 'POST',
+        url: '/tasks',
+        data: {
+            name: $('#task-field').val(),
+            complete: 'N',
+        }
+    }).then(function (response) {
+        updateDisplay();
+    }).catch(function (error) {
+        console.log(error);
+        alert('Something went wrong');
+    })
+
+
+
+    
 }
 
 function updateDisplay() {
