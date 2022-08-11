@@ -28,7 +28,7 @@
 - [] When deleting a task, remove it from the front end and database
 
 ### Client/server connections
-- [] GET request
+- [X] GET request
 - [] POST request
 - [] DELETE request
 - [] PUT request

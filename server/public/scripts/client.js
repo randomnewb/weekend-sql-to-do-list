@@ -5,36 +5,44 @@ function onReady() {
     $('body').on('click', '#submit-task', submitTask);
     $('body').on('click','.button-complete', markComplete);
     $('body').on('click','.button-delete', deleteTask);
-}
 
-let testArray = [];
+    updateDisplay();
+}
 
 function submitTask() {
     const task = {
         name: $('#task-field').val(),
-        complete: false,
+        complete: 'N',
     }
-    
-    testArray.push(task);
 
     updateDisplay()
 }
 
 function updateDisplay() {
 
-    $('#task-list').empty();
-    for (let task of testArray) {
-    
-        $('#task-list').append(`
-        <tr>
-        <td>${task.name}</td>
-        <td>
-        <button class="button-complete">Mark Complete</button>
-        <button class="button-delete">Delete</button>
-        </td>
-        </tr>
-        `)
-        };
+    $.ajax({
+        type: 'GET',
+        url: '/tasks'
+    }).then(function (response) {
+        console.log(response);
+        const tasks = response;
+        $('#task-list').empty();
+        for (let task of tasks) {
+        
+            $('#task-list').append(`
+            <tr>
+            <td>${task.name}</td>
+            <td>
+            <button class="button-complete">Mark Complete</button>
+            <button class="button-delete">Delete</button>
+            </td>
+            </tr>
+            `)
+            }
+    }).catch(function (error) {
+        console.log(error);
+        alert('Something went wrong');
+    })
 }
 
 function markComplete() {
