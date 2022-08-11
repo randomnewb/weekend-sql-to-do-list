@@ -12,11 +12,11 @@
 - [x] Test and make a commit
 
 ### Database
-- [] Setup database in Postico with name `weekend-to-do-app` (remember to use this same name in connection config)
+- [x] Setup database in Postico with name `weekend-to-do-app` (remember to use this same name in connection config)
 - Database table has the following parameters:
-    - [] Base: name, complete
+    - [x] Base: name, complete
     - [] Stretch: time, status, priority
-- [] Create a database.sql text file with `CREATE TABLE` queries
+- [x] Create a database.sql text file with `CREATE TABLE` queries
 
 ### Front End and Logic
 - [x] Allow user to create a Task
