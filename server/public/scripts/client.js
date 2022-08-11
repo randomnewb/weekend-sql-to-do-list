@@ -9,6 +9,20 @@ function onReady() {
     updateDisplay();
 }
 
+function deleteTask() {
+    const taskId = $(this).data('id')
+    console.log('deleteSong',taskId);
+    $.ajax({
+        type: 'DELETE',
+        url: `/tasks/${taskId}`
+    }).then(function(response) {
+        updateDisplay();
+    }).catch(function(error) {
+        console.log(error);
+        alert('Something went wrong');
+    })
+}
+
 function submitTask() {
 
     $.ajax({
@@ -24,10 +38,8 @@ function submitTask() {
         console.log(error);
         alert('Something went wrong');
     })
-
-
-
     
+    $('#task-field').val('');
 }
 
 function updateDisplay() {
@@ -45,8 +57,8 @@ function updateDisplay() {
             <tr>
             <td>${task.name}</td>
             <td>
-            <button class="button-complete">Mark Complete</button>
-            <button class="button-delete">Delete</button>
+            <button class="button-complete" data-id="${task.id}">Mark Complete</button>
+            <button class="button-delete" data-id="${task.id}">Delete</button>
             </td>
             </tr>
             `)
@@ -59,8 +71,4 @@ function updateDisplay() {
 
 function markComplete() {
     console.log('Complete task');
-}
-
-function deleteTask() {
-    console.log('Delete task');
 }

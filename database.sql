@@ -8,3 +8,6 @@ CREATE TABLE "tasks" (
 -- Test entry
 INSERT INTO "tasks" ("name", "complete")
 VALUES ('make a to-do list', 'N');
+
+-- Test delete
+DELETE FROM "tasks" WHERE "id" = 1

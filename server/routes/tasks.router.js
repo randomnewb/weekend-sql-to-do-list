@@ -5,6 +5,17 @@ const router = express.Router();
 
 const pool = require('../modules/pool.js');
 
+router.delete('/:id', (req, res) => {
+    const queryText = 'DELETE FROM "tasks" WHERE "id" = $1'
+    pool.query(queryText, [req.params.id])
+    .then((results) => {
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log(error);
+        res.sendStatus(500);
+    })
+})
+
 router.post('/', (req, res) => {
     const task = req.body;
     const queryText = `

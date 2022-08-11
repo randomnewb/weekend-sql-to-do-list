@@ -20,17 +20,17 @@
 
 ### Front End and Logic
 - [x] Allow user to create a Task
-- [] When user creates Task, store in database via SQL
+- [x] When user creates Task, store in database via SQL
 - [] Also refresh page to show all tasks needing to still be completed
 - [x] Add buttons for Complete or Delete for each task
 - [] Change styling for Tasks that are completed/incompleted (determined behind the scenes via code/logic)
 - [] If a task is complete, store that information (true/false)
-- [] When deleting a task, remove it from the front end and database
+- [X] When deleting a task, remove it from the front end and database
 
 ### Client/server connections
 - [X] GET request
-- [] POST request
-- [] DELETE request
+- [x] POST request
+- [X] DELETE request
 - [] PUT request
 
 ### Styling
