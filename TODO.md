@@ -1,13 +1,15 @@
 ### Setup file structure and install node packages
-- [] Create folders (server, modules, public, routes)
-- [] Create boilerplate files (index.html, client.js, server.js, style.css)
-- [] Obtain and source jquery
-- [] `npm init --yes`
-- [] `npm install express`
-- [] `npm install pg`
-- [] Setup .gitignore
-- [] Setup package.json
-- [] Test and make a commit
+- [x] Create folders (server, modules, public, routes)
+- [x] Change directories to have scripts and vendors
+- [x] Create boilerplate files (index.html, client.js, server.js, pool.js, style.css)
+- [x] Obtain and source jquery
+- [x] `npm init --yes`
+- [x] `npm install express`
+- [x] `npm install pg`
+- [x] Setup .gitignore
+- [x] Setup package.json
+    - Add `"start": "nodemon server/server.js"` under scripts
+- [x] Test and make a commit
 
 ### Database
 - [] Setup database in Postico with name `weekend-to-do-app` (remember to use this same name in connection config)
@@ -24,6 +26,12 @@
 - [] Change styling for Tasks that are completed/incompleted (determined behind the scenes via code/logic)
 - [] If a task is complete, store that information (true/false)
 - [] When deleting a task, remove it from the front end and database
+
+### Client/server connections
+- [] GET request
+- [] POST request
+- [] DELETE request
+- [] PUT request
 
 ### Styling
 - [] background color
