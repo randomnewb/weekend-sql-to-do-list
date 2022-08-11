@@ -9,6 +9,8 @@ function onReady() {
     updateDisplay();
 }
 
+// DELETE
+
 function deleteTask() {
     const taskId = $(this).data('id')
     console.log('deleteSong',taskId);
@@ -22,6 +24,8 @@ function deleteTask() {
         alert('Something went wrong');
     })
 }
+
+// POST
 
 function submitTask() {
 
@@ -54,7 +58,7 @@ function updateDisplay() {
         for (let task of tasks) {
         
             $('#task-list').append(`
-            <tr>
+            <tr data-complete="${task.complete}">
             <td>${task.name}</td>
             <td>
             <button class="button-complete" data-id="${task.id}">Mark Complete</button>
@@ -69,6 +73,20 @@ function updateDisplay() {
     })
 }
 
+// PUT
+
 function markComplete() {
-    console.log('Complete task');
+    const taskId = $(this).data('id');
+    console.log('Mark complete', taskId);
+
+    $.ajax({
+        type: 'PUT',
+        url: `/tasks/${taskId}`,
+        data: { complete: 'Y'}
+    }).then(function (response) {
+        updateDisplay();
+    }).catch(function (error) {
+        console.log(error);
+        alert('Something went wrong');
+    })
 }

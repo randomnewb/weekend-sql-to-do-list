@@ -10,3 +10,10 @@ table, th, td {
     border: 1px solid;
   }
 
+[data-complete="N"] {
+    background-color: orange;
+}
+
+[data-complete="Y"] {
+    background-color: cyan;
+}

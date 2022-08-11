@@ -42,4 +42,20 @@ router.get('/', (req, res) => {
     })
 });
 
+router.put('/:id', (req, res) => {
+    const taskId = req.params.id;
+    const task = req.body
+    console.log(req.body);
+    const queryText = `
+    UPDATE "tasks" SET "complete" = $1
+    WHERE "id" = $2;
+    `;
+    pool.query(queryText, [task.complete, taskId])
+    .then((results) => {
+        res.sendStatus(200);
+    }).catch((error) => {
+        res.sendStatus(500);
+    })
+})
+
 module.exports = router;
