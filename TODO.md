@@ -19,10 +19,10 @@
 - [] Create a database.sql text file with `CREATE TABLE` queries
 
 ### Front End and Logic
-- [] Allow user to create a Task
+- [x] Allow user to create a Task
 - [] When user creates Task, store in database via SQL
 - [] Also refresh page to show all tasks needing to still be completed
-- [] Add buttons for Complete or Delete for each task
+- [x] Add buttons for Complete or Delete for each task
 - [] Change styling for Tasks that are completed/incompleted (determined behind the scenes via code/logic)
 - [] If a task is complete, store that information (true/false)
 - [] When deleting a task, remove it from the front end and database
@@ -34,6 +34,6 @@
 - [] PUT request
 
 ### Styling
-- [] background color
+- [x] background color
 - [] font family/size
 - [] text color and/or bg color of tasks (signaling complete vs incomplete)

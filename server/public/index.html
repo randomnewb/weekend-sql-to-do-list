@@ -8,9 +8,21 @@
         <title>SQL To Do List</title>
         <script src="./vendors/jquery.js"></script>
         <script src="./scripts/client.js"></script>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="./styles/style.css">
     </head>
     <body>
-
+        <input id="task-field">
+        <button id="submit-task">Add task</button>
+        <table>
+            <tr>
+                <th>Task</th>
+                <th>Actions</th>
+            </tr>
+            <tbody id="task-list"></tbody>
+            <!-- <tr>
+                <td>Complete to-do list</td>
+                <td><button class="task-incomplete">Complete</button></td>
+            </tr> -->
+        </table>
     </body>
 </html>
