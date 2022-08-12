@@ -1,3 +1,12 @@
+.main {
+    display: flex;
+    justify-content: space-around;
+}
+
+.main > * {
+    flex: 1 100%;
+}
+
 body {
     background-color: #00537A;
     font-family: 'Rubik', sans-serif;
@@ -29,6 +38,7 @@ button:hover {
 
 input {
     background-color: #c0e1f9;
+    width: calc(100% - 150px);
 }
 
 [data-complete="N"], #not-done {
