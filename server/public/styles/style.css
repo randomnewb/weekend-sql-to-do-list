@@ -1,19 +1,40 @@
 body {
-    background-color: lightskyblue;
+    background-color: #00537A;
+    font-family: 'Rubik', sans-serif;
 }
 
-table {
-    background-color: whitesmoke;
+h1 {
+    color: whitesmoke;
+}
+
+table, #legend {
+    background-color: #FFD35B;
 }
 
 table, th, td {
     border: 1px solid;
   }
 
-[data-complete="N"] {
-    background-color: orange;
+.button-cell-background {
+    background-color: #FFD35B;
 }
 
-[data-complete="Y"] {
-    background-color: cyan;
+button {
+    background-color: #A8E8F9;
+}
+
+button:hover {
+    background-color: whitesmoke;
+}
+
+input {
+    background-color: #c0e1f9;
+}
+
+[data-complete="N"], #not-done {
+    background-color: #F5A201;
+}
+
+[data-complete="Y"], #done {
+    background-color: #219EBC;
 }

@@ -10,7 +10,7 @@ function onReady() {
     updateDisplay();
 }
 
-// DELETE
+// DELETE - Delete task from complete
 
 function deleteTask() {
     const taskId = $(this).data('id')
@@ -26,7 +26,7 @@ function deleteTask() {
     })
 }
 
-// POST
+// POST - Add task to database
 
 function submitTask() {
 
@@ -47,6 +47,45 @@ function submitTask() {
     $('#task-field').val('');
 }
 
+// PUT - Mark task as complete
+
+function markComplete() {
+    const taskId = $(this).data('id');
+    console.log('Mark complete', taskId);
+
+    $.ajax({
+        type: 'PUT',
+        url: `/tasks/${taskId}`,
+        data: { complete: 'Y'}
+    }).then(function (response) {
+        updateDisplay();
+    }).catch(function (error) {
+        console.log(error);
+        alert('Something went wrong');
+    })
+}
+
+// PUT - Undo marking task as complete
+
+function undoTask() {
+    const taskId = $(this).data('id');
+    console.log('Undo', taskId);
+
+    $.ajax({
+        type: 'PUT',
+        url: `/tasks/${taskId}`,
+        data: { complete: 'N'}
+    }).then(function (response) {
+        updateDisplay();
+    }).catch(function (error) {
+        console.log(error) 
+        alert('Something went wrong');
+    });
+
+}
+
+// Update items on table
+
 function updateDisplay() {
 
     $.ajax({
@@ -65,7 +104,7 @@ function updateDisplay() {
             $('#task-list').append(`
             <tr data-complete="${task.complete}">
             <td>${task.name}</td>
-            <td>
+            <td class="button-cell-background">
             ${task.buttonMode}
             <button class="button-delete" data-id="${task.id}">Delete</button>
             </td>
@@ -76,39 +115,4 @@ function updateDisplay() {
         console.log(error);
         alert('Something went wrong');
     })
-}
-
-// PUT
-
-function markComplete() {
-    const taskId = $(this).data('id');
-    console.log('Mark complete', taskId);
-
-    $.ajax({
-        type: 'PUT',
-        url: `/tasks/${taskId}`,
-        data: { complete: 'Y'}
-    }).then(function (response) {
-        updateDisplay();
-    }).catch(function (error) {
-        console.log(error);
-        alert('Something went wrong');
-    })
-}
-
-function undoTask() {
-    const taskId = $(this).data('id');
-    console.log('Undo', taskId);
-
-    $.ajax({
-        type: 'PUT',
-        url: `/tasks/${taskId}`,
-        data: { complete: 'N'}
-    }).then(function (response) {
-        updateDisplay();
-    }).catch(function (error) {
-        console.log(error) 
-        alert('Something went wrong');
-    });
-
 }

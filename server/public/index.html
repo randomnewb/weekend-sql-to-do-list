@@ -9,10 +9,17 @@
         <script src="./vendors/jquery.js"></script>
         <script src="./scripts/client.js"></script>
         <link rel="stylesheet" href="./styles/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     </head>
+    <title>To Do App</title>
     <body>
-        <input id="task-field">
-        <button id="submit-task">Add task</button>
+        <h1> To Do App</h1>
+        <div id="main">
+        <input id="task-field" placeholder="Add to do...">
+        <button id="submit-task">Add Task</button>
+        <br><br>
         <table>
             <tr>
                 <th>Task</th>
@@ -23,6 +30,19 @@
                 <td>Complete to-do list</td>
                 <td><button class="task-incomplete">Complete</button></td>
             </tr> -->
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th id="legend">Legend</th>
+            </tr>
+            <tr>
+                <th id="not-done">Incomplete</th>
+            </tr>
+            <tr>
+                <th id="done">Completed</th>
+            </tr>
+        </div>
         </table>
     </body>
 </html>

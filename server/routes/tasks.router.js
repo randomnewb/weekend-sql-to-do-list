@@ -5,6 +5,8 @@ const router = express.Router();
 
 const pool = require('../modules/pool.js');
 
+// DELETE - Delete task from database
+
 router.delete('/:id', (req, res) => {
     const queryText = 'DELETE FROM "tasks" WHERE "id" = $1'
     pool.query(queryText, [req.params.id])
@@ -15,6 +17,8 @@ router.delete('/:id', (req, res) => {
         res.sendStatus(500);
     })
 })
+
+// POST - Add task to the database
 
 router.post('/', (req, res) => {
     const task = req.body;
@@ -32,8 +36,10 @@ router.post('/', (req, res) => {
         })
 })
 
+// GET - Retrieve tasks from database
+
 router.get('/', (req, res) => {
-    const queryText = 'SELECT * FROM "tasks" ORDER BY "name";';
+    const queryText = 'SELECT * FROM "tasks" ORDER BY "id";';
     pool.query(queryText).then((result) => {
         res.send(result.rows);
     }).catch((error) => {
@@ -41,6 +47,8 @@ router.get('/', (req, res) => {
         res.sendStatus(500);
     })
 });
+
+// PUT - Update task completion status
 
 router.put('/:id', (req, res) => {
     const taskId = req.params.id;

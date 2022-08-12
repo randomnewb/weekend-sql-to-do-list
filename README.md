@@ -1,9 +1,18 @@
-# Project Name
-
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
+# SQL To Do List
 
 ## Description
 
-Your project description goes here. What problem did you solve? How did you solve it?
+A simple To Do List app built with html, javascript, css, node, express, and sql.
 
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
+### Features
+Users can... 
+
+- add tasks (up to 120 characters)
+- mark tasks as complete
+- undo marking tasks as complete
+- delete tasks
+
+Tasks are...
+
+- color-coded (one color for complete, one color for incomplete)
+- sent, retrieved, and stored on a database
